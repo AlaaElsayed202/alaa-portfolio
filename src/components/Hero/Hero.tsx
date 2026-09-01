@@ -12,7 +12,6 @@ const Hero = () => {
 
     const typingInterval = setInterval(() => {
       setDisplayedText(text.slice(0, index + 1));
-
       index++;
 
       if (index >= text.length) {
@@ -36,6 +35,7 @@ const Hero = () => {
         bg-[#7C5CFF]
         px-6
         py-20
+        sm:px-8
       "
     >
       {/* =========================
@@ -91,11 +91,13 @@ const Hero = () => {
       <span
         className="
           absolute
-          left-[8%]
-          top-[20%]
+          left-[5%]
+          top-[18%]
           animate-pulse
-          text-5xl
+          text-4xl
           text-[#FFD44D]
+          sm:left-[8%]
+          sm:text-5xl
         "
       >
         ✦
@@ -104,11 +106,13 @@ const Hero = () => {
       <span
         className="
           absolute
-          right-[10%]
-          top-[15%]
+          right-[6%]
+          top-[12%]
           animate-bounce
-          text-4xl
+          text-3xl
           text-[#AAF35E]
+          sm:right-[10%]
+          sm:text-4xl
         "
       >
         ✧
@@ -117,9 +121,12 @@ const Hero = () => {
       <span
         className="
           absolute
-          bottom-[15%]
-          left-[12%]
-          text-3xl
+          bottom-[12%]
+          left-[8%]
+          text-2xl
+          sm:bottom-[15%]
+          sm:left-[12%]
+          sm:text-3xl
         "
       >
         ⭐
@@ -128,9 +135,11 @@ const Hero = () => {
       <span
         className="
           absolute
-          bottom-[12%]
-          right-[25%]
-          text-4xl
+          bottom-[10%]
+          right-[15%]
+          text-3xl
+          sm:right-[25%]
+          sm:text-4xl
         "
       >
         ✦
@@ -146,6 +155,7 @@ const Hero = () => {
           absolute
           left-[5%]
           top-[38%]
+          z-20
           hidden
           rotate-[-8deg]
           rounded-full
@@ -168,6 +178,7 @@ const Hero = () => {
           absolute
           right-[5%]
           top-[45%]
+          z-20
           hidden
           rotate-[8deg]
           rounded-full
@@ -194,19 +205,25 @@ const Hero = () => {
           relative
           z-10
           mx-auto
-          grid
+          flex
           min-h-screen
           max-w-7xl
-          items-center
-          gap-12
+          flex-col
+          justify-center
+          gap-8
+          pt-16
+          lg:grid
           lg:grid-cols-2
+          lg:items-center
+          lg:gap-12
+          lg:pt-0
         "
       >
         {/* =========================
             LEFT SIDE
         ========================= */}
 
-        <div className="relative">
+        <div className="relative text-center lg:text-left">
           {/* INTRO */}
 
           <div className="hero-intro space-y-3">
@@ -223,32 +240,33 @@ const Hero = () => {
 
             <p
               className="
+                mx-auto
                 max-w-xl
                 text-lg
                 font-medium
                 leading-7
                 text-[#FFF8F3]/80
                 md:text-xl
+                lg:mx-0
               "
             >
               a frontend developer who loves making the web feel alive.
             </p>
           </div>
 
-          {/* =========================
-              MAIN TITLE
-          ========================= */}
+          {/* MAIN TITLE */}
 
           <h1
             id="hero-title"
             className="
               mt-8
-              text-7xl
+              text-6xl
               font-black
               uppercase
-              leading-[0.78]
+              leading-[0.8]
               tracking-[-0.07em]
               text-[#FFF8F3]
+              sm:text-7xl
               md:text-[9rem]
             "
           >
@@ -260,21 +278,21 @@ const Hero = () => {
               <span
                 className="
                   absolute
-                  -bottom-3
+                  -bottom-2
                   left-0
-                  h-3
+                  h-2
                   w-full
                   -rotate-2
                   rounded-full
                   bg-[#FF4FD8]
+                  sm:-bottom-3
+                  sm:h-3
                 "
               />
             </span>
           </h1>
 
-          {/* =========================
-              DEVELOPER LABEL
-          ========================= */}
+          {/* DEVELOPER LABEL */}
 
           <div className="mt-8">
             <span
@@ -285,36 +303,40 @@ const Hero = () => {
                 border-2
                 border-[#17111F]
                 bg-[#AAF35E]
-                px-5
+                px-4
                 py-2
+                text-sm
                 font-black
                 text-[#17111F]
                 shadow-[4px_4px_0px_#17111F]
+                sm:px-5
               "
             >
               ✦ FRONTEND DEVELOPER
             </span>
           </div>
 
-          {/* =========================
-              TYPEWRITER
-          ========================= */}
+          {/* TYPEWRITER */}
 
           <div
             className="
+              mx-auto
               mt-6
-              min-h-[90px]
+              min-h-[100px]
               max-w-2xl
+              lg:mx-0
             "
           >
             <p
               className="
                 font-mono
-                text-lg
+                text-base
                 font-bold
-                leading-8
+                leading-7
                 text-[#FFF8F3]
+                sm:text-lg
                 md:text-2xl
+                md:leading-8
               "
             >
               <span className="text-[#FFD44D]">{">"}</span> {displayedText}
@@ -322,16 +344,17 @@ const Hero = () => {
             </p>
           </div>
 
-          {/* =========================
-              BUTTONS
-          ========================= */}
+          {/* BUTTONS */}
 
           <div
             className="
-              mt-8
+              mt-6
               flex
               flex-wrap
+              justify-center
               gap-4
+              lg:mt-8
+              lg:justify-start
             "
           >
             <button
@@ -340,8 +363,8 @@ const Hero = () => {
                 border-4
                 border-[#17111F]
                 bg-[#FFD44D]
-                px-7
-                py-4
+                px-6
+                py-3
                 font-black
                 text-[#17111F]
                 shadow-[6px_6px_0px_#17111F]
@@ -350,6 +373,8 @@ const Hero = () => {
                 hover:-translate-y-2
                 hover:rotate-[-2deg]
                 hover:shadow-[10px_10px_0px_#17111F]
+                sm:px-7
+                sm:py-4
               "
             >
               Explore my work →
@@ -361,8 +386,8 @@ const Hero = () => {
                 border-4
                 border-[#17111F]
                 bg-[#FF4FD8]
-                px-7
-                py-4
+                px-6
+                py-3
                 font-black
                 text-[#FFF8F3]
                 shadow-[6px_6px_0px_#17111F]
@@ -371,29 +396,34 @@ const Hero = () => {
                 hover:-translate-y-2
                 hover:rotate-[2deg]
                 hover:shadow-[10px_10px_0px_#17111F]
+                sm:px-7
+                sm:py-4
               "
             >
               About me
             </button>
           </div>
 
-          {/* =========================
-              SCROLL INDICATOR
-          ========================= */}
+          {/* SCROLL INDICATOR */}
 
           <div
             className="
-              mt-12
+              mt-10
               flex
               items-center
+              justify-center
               gap-3
               font-black
               text-[#FFF8F3]
+              sm:mt-12
+              lg:justify-start
             "
           >
             <span className="animate-bounce text-2xl">↓</span>
 
-            <span className="tracking-widest">SCROLL TO EXPLORE</span>
+            <span className="text-xs tracking-widest sm:text-sm">
+              SCROLL TO EXPLORE
+            </span>
           </div>
         </div>
 
@@ -401,7 +431,15 @@ const Hero = () => {
             RIGHT SIDE
         ========================= */}
 
-        <div className="relative">
+        <div
+          className="
+            relative
+            flex
+            w-full
+            justify-center
+            lg:block
+          "
+        >
           <HeroCharacter />
         </div>
       </div>

@@ -26,11 +26,9 @@ const useScrollAnimations = () => {
     gsap.ticker.lagSmoothing(0);
 
     const ctx = gsap.context(() => {
-      /*
-       * =========================
-       * HERO
-       * =========================
-       */
+      // =========================
+      // HERO
+      // =========================
 
       const hero = document.querySelector("#home");
       const heroTitle = document.querySelector("#hero-title");
@@ -82,11 +80,9 @@ const useScrollAnimations = () => {
         }
       }
 
-      /*
-       * =========================
-       * ABOUT
-       * =========================
-       */
+      // =========================
+      // ABOUT
+      // =========================
 
       const aboutTitle = document.querySelector("#about-title");
       const aboutCharacter = document.querySelector("#about-character");
@@ -120,11 +116,9 @@ const useScrollAnimations = () => {
         });
       }
 
-      /*
-       * =========================
-       * SKILLS
-       * =========================
-       */
+      // =========================
+      // SKILLS
+      // =========================
 
       const skillBubbles = gsap.utils.toArray(".skill-bubble");
 
@@ -143,11 +137,9 @@ const useScrollAnimations = () => {
         });
       }
 
-      /*
-       * =========================
-       * CERTIFICATES
-       * =========================
-       */
+      // =========================
+      // CERTIFICATES
+      // =========================
 
       const certificateCards = gsap.utils.toArray(".certificate-card");
 
@@ -166,21 +158,28 @@ const useScrollAnimations = () => {
         });
       }
 
-      /*
-       * =========================
-       * PROJECTS
-       * =========================
-       */
+      // =========================
+      // PROJECTS
+      // =========================
 
       const projectCards = gsap.utils.toArray(".project-card");
 
       if (projectCards.length > 0) {
+        // مهم:
+        // نخلي الكروت ظاهرة افتراضيًا قبل تشغيل الأنيميشن.
+        gsap.set(projectCards, {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+        });
+
         gsap.from(projectCards, {
           scrollTrigger: {
             trigger: "#projects",
             start: "top 80%",
             end: "center center",
             scrub: 1,
+            invalidateOnRefresh: true,
           },
           y: 150,
           scale: 0.7,
@@ -189,11 +188,9 @@ const useScrollAnimations = () => {
         });
       }
 
-      /*
-       * =========================
-       * JOURNEY
-       * =========================
-       */
+      // =========================
+      // JOURNEY
+      // =========================
 
       const journeyItems = gsap.utils.toArray(".journey-item");
 
@@ -211,11 +208,9 @@ const useScrollAnimations = () => {
         });
       }
 
-      /*
-       * =========================
-       * CONTACT
-       * =========================
-       */
+      // =========================
+      // CONTACT
+      // =========================
 
       const contactTitle = document.querySelector("#contact-title");
 
@@ -233,14 +228,15 @@ const useScrollAnimations = () => {
         });
       }
 
-      ScrollTrigger.refresh();
+      // Give the browser time to calculate the final layout.
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
     });
 
     return () => {
       ctx.revert();
-
       lenis.destroy();
-
       gsap.ticker.remove(animationFrame);
     };
   }, []);

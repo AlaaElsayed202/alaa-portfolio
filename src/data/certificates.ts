@@ -20,7 +20,7 @@ export const certificates: Certificate[] = [
   {
     id: "eraa",
     title: "Frontend Development",
-    issuer: "Eraa",
+    issuer: "EraaSoft",
     date: "2026",
     image: "/Eraa.png",
   },
